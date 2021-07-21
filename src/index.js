@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _, {each} from 'lodash';
 import './style.css';
 
 let ToDo = [
@@ -24,7 +24,7 @@ function RenderToDo(todo) {
     TodoContainer.innerHTML = `
     <div class="left flex">
       <input class="check" id="${todo.number}" type="checkbox"/>
-      <label for="${todo.number}" class="tick js-tick"></label>
+      <label for="${todo.number}" class=""></label>
       <span>${todo.Description}</span>
     </div>
     `
@@ -41,3 +41,21 @@ function AddToDo(Description) {
     RenderToDo(todo);
 }
 
+const form = document.querySelector('input-form');
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const input = document.querySelector('input-tag');
+    const text = input.nodeValue.trim();
+    if (Description !== '') {
+        AddToDo(text);
+        input.value = '';
+        input.focus();
+
+    }
+}) 
+
+window.addEventListener('load', (e) => {
+    todoItems.forEach((todo) => {
+      renderTodo(todo);
+    });
+  });
