@@ -1,25 +1,25 @@
-import _, {each} from 'lodash';
+import _ from 'lodash';
 import './style.css';
-
 
 let TodoCollection = [
     {
-        Description: "walk the dog",
-        status: false,
-        index: 0,
+        Description = "walk the dog",
+        status = false,
+        index = 0,
 
     },
     {
-        Description: "assignement work",
-        status: false,
-        index: 1,
+        Description = "assignement work",
+        status = false,
+        index = 1,
 
     }
 ]
 
+console.log('1')
 
 function ShowToDo(TodoCollection) {
-    
+        console.log('sss')
         TodoCollection.forEach((todo) => {
         const ToDolistLibrairy = document.getElementById("todos-list");
         const ToDoContainer = document.createElement('li');
@@ -37,8 +37,10 @@ function ShowToDo(TodoCollection) {
         button.innerHTML = 'Remove';
         ToDoContainer.appendChild(ToDo).appendChild(checkbox).appendChild(ToDoDescritpion).appendChild(button);
         ToDolistLibrairy.appendChild(ToDoContainer);
+        console.log('fff')
     
     })
+    console.log('fff')
 }
 
 function AddToDo(Description) {
