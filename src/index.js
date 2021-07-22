@@ -1,61 +1,59 @@
 import _, {each} from 'lodash';
 import './style.css';
 
-let ToDo = [
+
+let TodoCollection = [
     {
         Description: "walk the dog",
-        completed: false,
-        number:0
+        status: false,
+        index: 0,
+
     },
     {
         Description: "assignement work",
-        completed: false,
-        number:1
+        status: false,
+        index: 1,
+
     }
+]
 
-];
 
-function RenderToDo(todo) {
-    const list = document.querySelector('todos-list');
-    const TodoContainer =  document.createElement('li');
-    const Checked = todo.completed ? 'done' : '';
-    TodoContainer.setAttribute('class', `todo-item ${Checked}`);
-    TodoContainer.setAttribute('data-index-number', todo.number);
-    TodoContainer.innerHTML = `
-    <div class="left flex">
-      <input class="check" id="${todo.number}" type="checkbox"/>
-      <label for="${todo.number}" class=""></label>
-      <span>${todo.Description}</span>
-    </div>
-    `
-    list.appendChild(TodoContainer);
+function ShowToDo(TodoCollection) {
+    
+        TodoCollection.forEach((todo) => {
+        const ToDolistLibrairy = document.getElementById("todos-list");
+        const ToDoContainer = document.createElement('li');
+        ToDoContainer.setAttribute('id', 'todo-item')
+        const checkbox = document.createElement('input');
+        const checkstatus = todo.status ? true : false;
+        const ToDo = document.createElement('div');
+        ToDo.setAttribute('todo-item-container');
+        checkbox.setAttribute('type', 'checkbox');
+        checkbox.setAttribute('id', todo.index);
+        const ToDoDescritpion = document.createElement('p');
+        ToDoDescritpion.innerHTML = todo.Description;
+        const button = document.createElement('button');
+        button.setAttribute('id', `remove-btn ${checkstatus}`);
+        button.innerHTML = 'Remove';
+        ToDoContainer.appendChild(ToDo).appendChild(checkbox).appendChild(ToDoDescritpion).appendChild(button);
+        ToDolistLibrairy.appendChild(ToDoContainer);
+    
+    })
 }
 
 function AddToDo(Description) {
     const todo = {
         Description,
-        completed: false,
-        number: ToDo.length,
-    };
-    ToDo.push(todo);
-    RenderToDo(todo);
+        status = false,
+        index = TodoCollection.length
+    }
+    TodoCollection.push(todo);
+    ShowToDo(TodoCollection);
 }
 
-const form = document.querySelector('input-form');
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const input = document.querySelector('input-tag');
-    const text = input.nodeValue.trim();
-    if (Description !== '') {
-        AddToDo(text);
-        input.value = '';
-        input.focus();
+const AddButton = document.getElementById('Add-btn')
+AddButton.addEventListener('click', (event) => AddToDo()
+)
 
-    }
-}) 
 
-window.addEventListener('load', (e) => {
-    todoItems.forEach((todo) => {
-      renderTodo(todo);
-    });
-  });
+

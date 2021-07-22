@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Todo list</title>
 </head>
 <body>
@@ -11,12 +12,17 @@
     <div class="container">
         <div class="Title"><p>Add todos to your list</p></div>
         <form class="input-form">
-            <input type="text" placeholder="Add to your list..." id="input-tag">
+            <input type="text" placeholder="Add to your list..." id="input">
+            <button id="Add-btn" type="submit" >add to do</button>
         </form>
-        <ul id="todos-list"></ul>
+        <ul id="todos-list">
+            
+        </ul>
         <p id="clear">clear completed</p>
     </div>
+
     
     
 </body>
+<script src="./index.js"></script>
 </html>
