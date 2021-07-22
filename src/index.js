@@ -1,19 +1,61 @@
 import _ from 'lodash';
-function component() {
-    const element = document.createElement('div');
-  
-     // Lodash, now imported by this script
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  
-    return element;
-  }
-  
-  document.body.appendChild(component());
+import './style.css';
 
-let ToDo = [{number: 1, Description: "washe the dishes", completed: false}, {number:2, Description: "programming task", completed: false }, {number: 3, Description: "walk the dog", completed: false}]
+let TodoCollection = [
+    {
+        Description = "walk the dog",
+        status = false,
+        index = 0,
 
-console.log(ToDo)
+    },
+    {
+        Description = "assignement work",
+        status = false,
+        index = 1,
 
-console.log(ToDo[0])
+    }
+]
 
-  ToDo = {number: , Description: , completed: }
+console.log('1')
+
+function ShowToDo(TodoCollection) {
+        console.log('sss')
+        TodoCollection.forEach((todo) => {
+        const ToDolistLibrairy = document.getElementById("todos-list");
+        const ToDoContainer = document.createElement('li');
+        ToDoContainer.setAttribute('id', 'todo-item')
+        const checkbox = document.createElement('input');
+        const checkstatus = todo.status ? true : false;
+        const ToDo = document.createElement('div');
+        ToDo.setAttribute('todo-item-container');
+        checkbox.setAttribute('type', 'checkbox');
+        checkbox.setAttribute('id', todo.index);
+        const ToDoDescritpion = document.createElement('p');
+        ToDoDescritpion.innerHTML = todo.Description;
+        const button = document.createElement('button');
+        button.setAttribute('id', `remove-btn ${checkstatus}`);
+        button.innerHTML = 'Remove';
+        ToDoContainer.appendChild(ToDo).appendChild(checkbox).appendChild(ToDoDescritpion).appendChild(button);
+        ToDolistLibrairy.appendChild(ToDoContainer);
+        console.log('fff')
+    
+    })
+    console.log('fff')
+}
+
+function AddToDo(Description) {
+    const todo = {
+        Description,
+        status = false,
+        index = TodoCollection.length
+    }
+    TodoCollection.push(todo);
+    ShowToDo(TodoCollection);
+}
+
+const AddButton = document.getElementById('Add-btn')
+AddButton.addEventListener('click', (event) => AddToDo()
+)
+
+
+

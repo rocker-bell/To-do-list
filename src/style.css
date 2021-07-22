@@ -1,0 +1,29 @@
+body {
+    background-color: #fff;
+    
+}
+
+
+.container {
+    border: 1px solid black;
+    width: 400px;
+    height: 350px;
+    /* margin: auto; */
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    padding: 20px 20px;
+    box-shadow: 5px 5px 5px black;
+    
+}
+
+#clear {
+    
+    border: 1px solid black;
+    width: 150px;
+    height: 35px;
+    box-shadow: 5px 5px 5px 5px whitesmoke;
+    padding-top: 12px;
+    margin: 50px auto;
+}
